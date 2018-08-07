@@ -5,3 +5,13 @@ export const addPhone = (name) => ({
     id      :   idPointer++,
     name    :   name
 });
+
+export const markCostly = (id) => ({
+    type    :   'MARK_COSTLY',
+    id      :   id
+});
+
+export const markLowCost = (id) => ({
+    type    :   'MARK_LOWCOST',
+    id      :   id
+});

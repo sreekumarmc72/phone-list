@@ -4,25 +4,21 @@ const phones = (state = [], action) => {
             return [
                 ...state,
                 {
-                    id  : action.id,
-                    name: action.text
+                    id      :   action.id,
+                    name    :   action.name,
+                    costly  :   'normal'
                 }
             ];
+        case 'MARK_COSTLY': 
+            return state.map(phone => 
+                    (phone.id === action.id) ? {...phone, costly : 'costly'} : phone
+                );
+        case 'MARK_LOWCOST': 
+            return state.map(phone => 
+                    (phone.id === action.id) ? {...phone, costly : 'lowcost'} : phone
+                );
         default:
-            return [
-                {
-                    id      :   1,
-                    name    :   'test1' 
-                },
-                {
-                    id      :   2,
-                    name    :   'test2' 
-                },
-                {
-                    id      :   3,
-                    name    :   'test3' 
-                }
-            ]; 
+            return []; 
     }
 }
 
